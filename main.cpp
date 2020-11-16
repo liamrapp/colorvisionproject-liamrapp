@@ -1,68 +1,86 @@
 #include <iostream>
 #include<fstream>
 #include<string>
+#include <vector>
+#include<stdlib.h>
 using namespace std;
+void HexToFile (string);
+char AskAgain ();
+long int ColorAnalysis();
+string HexIn();
 
 int main()
 {
-  std::string hexfile;
+  string hexadecimal;
+  char answer;
+  int redvalue,greenvalue,bluevalue,hello;
+  do{
+    hexadecimal = HexIn();
+    if(hexadecimal.size() == 6){
+      HexToFile(hexadecimal);
+      ColorAnalysis();
+    }
+    if(hexadecimal.size() == 1){
+      return 0;
+    }
+    if(hexadecimal.size() < 6){
+      cout<<"That was an invalid hexadecimal please try again.\n";
+    }
+  }while(HexIn() == HexIn());
+  
+  
+  
+  
+  
+  return 0;
+}
+void HexToFile (string hex)
+{
+  std::ofstream out("hexadecimal.txt");
+  out << hex[0] << hex[1] << endl;
+  out << hex[2] << hex[3] << endl;
+  out << hex[4] << hex[5] << endl;
+}
+string HexIn()
+{
+  string Hex6;
+  cout<< "What hexadecimal would you like to anaylze, or enter Q to quit.\n";
+  cin >> Hex6;
+  return Hex6;
+}
+long int ColorAnalysis()
+{
   fstream fileR;
-  int red1,red2,blue1,blue2,green1,green2,color1,color2,color3,count;
-  string line0,line1,line2,line3,line4,line5,hex;
-  char choice;
-    
-    //gaining hexadecimal via cin but can be changed to read from file
-    cout<< "What hexadecimal would you like to check for suitability?\n";
-    std::cin>> hexfile;
-    std::ofstream out("hexadecimal.txt");
-    out << hexfile[0]<<endl;
-    out << hexfile[1]<<endl;
-    out << hexfile[2]<<endl;
-    out << hexfile[3]<<endl;
-    out << hexfile[4]<<endl;
-    out << hexfile[5]<<endl;
-    // check to if the characters are within bound of hexadecimal
-      
-      //red color calculations
-      fileR.open("hexadecimal.txt");
-      if(fileR.is_open())
-      {
-        getline(fileR,line0);
-        getline(fileR,line1);
-        getline(fileR,line2);
-        getline(fileR,line3);
-        getline(fileR,line4);
-        getline(fileR,line5);
+  string red,green,blue;
+  fileR.open("hexadecimal.txt");
+  if(fileR.is_open()){
+    getline(fileR,red);
+    getline(fileR,green);
+    getline(fileR,blue);
+    cout<<"The hexadecimal value for each color is:\n"<<"Red: "<<red<<endl<<"Green: "<<green<<endl<<"Blue: "<<blue<<endl;
+  }
+  long int redint = strtol(red.c_str(),NULL,16);
+  long int greenint = strtol(green.c_str(),NULL,16);
+  long int blueint = strtol(blue.c_str(),NULL,16);
+  
+  cout<<"The RGB value of each color is:\n"<< "Red: "<<redint<<endl<<"Green: "<<greenint<<endl<<"Blue: "<<blueint<<endl;
+  
 
-        
-        red1 = std::stoi (line0);
-        red2 = std::stoi (line1);
-        green1 = std::stoi (line2);
-        green2 = std::stoi (line3);
-        blue1 = std::stoi (line4);
-        blue2 = std::stoi (line5);
-        
-        
-        color1 = ( red1* 16) + red2;
-        color2 = (green1 * 16) + green2;
-        color3 = (blue1 * 16) + blue2;
-        
-        cout<<"The color levels in R.G.B. are "<<endl<<"Red: "<<color1<<endl<<"Green: "<<color2<<endl<<"Blue: "<<color3<<endl;
-        {
-          if((color1 + color2) > color3)
-          {
-            cout<<"This would not be a suitable color for someone who is red/green colorblind.\n";
-          }
-          if((color1 + color2) <= color3)
-          {
-            cout<<"This color has high levels of blue, easily visible to someone red/green colorblind.\n";
-          }
-        }
-      }
-        else
-      {
-        cout<<"That is an unreadable hexadecimal.\n";
-      }
-      
+  if(redint >= 250 && greenint >= 250 && blueint <= 100){
+    cout<<"This shade of green and ones lighter than it are impossible for people with Protanopia,Deutanopia, and Tritanopia to tell the difference of.\n";
+  }
+  if(redint >= 250 && greenint == 0 && blueint <= 50){
+    cout<<"This shade of red and lighter is incredbly difficult for people Deutanopia and Tritanopia to tell the difference in colors.\n";
+  }
+  if(redint <= 100 && greenint >= 250 && blueint <= 100){
+    cout<<"Shades of green yellow like this are difficult for people with all 3 types of color blindness to see mainly because of its high green color value.\n";
+  }
+  if( blueint >= (redint + greenint)){
+    cout<<"This is a potenitally suitable color for people with Protanopia and Duetanopia colorblindness. \n";
+  }
+  if((redint + greenint) >= blueint){
+    cout<<"This color is unacceptable to most color blindness due to its high levels of green and red.\n";
+  }
+
   return 0;
 }
