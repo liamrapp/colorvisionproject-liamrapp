@@ -13,7 +13,7 @@ int main()
 {
   //variables 
   string hexadecimal; 
-  int redvalue,greenvalue,bluevalue,hello;
+  
 
   do{ //main do while loop will always be true so that it will always ask for new hex
     hexadecimal = HexIn();
