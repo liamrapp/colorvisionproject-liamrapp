@@ -3,6 +3,7 @@
 #include<string>
 #include <vector>
 #include<stdlib.h>
+#include<hexadecimal.h>
 using namespace std;
 //function prototypes
 void HexToFile (string);
