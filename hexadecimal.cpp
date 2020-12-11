@@ -1,53 +1,28 @@
-#include <iostream>
-#include<fstream>
-#include<string>
-#include <vector>
-#include<stdlib.h>
 #include "hexadecimal.h"
+#include <string>
+#include<fstream>
+#include<iostream>
+#include <vector>
+
+using std::string;
+using std::vector;
 using namespace std;
-//function prototypes
 
-int main()
-{
-  //variables 
-  string hexa; 
-  hexadecimal hex;
-  
-
-  do{ //main do while loop will always be true so that it will always ask for new hex
-    hexa = hex.HexIn();
-    if(hexa.size() == 6){ //making sure that it is as long as a hexadecimal
-      hex.HexToFile(hexa); //call to input hexadecimal input into hexadecimal.txt
-      hex.ColorAnalysis();//reads hexadecimal values from .txt file and changes to integer
-    }
-    if(hexa.size() == 1){
-      hex.hexquit(hexa);
-    }
-    if(hexa.size() < 6){
-      cout<<"That was an invalid hexadecimal please try again.\n";
-    }
-  }while(hex.HexIn() == hex.HexIn());
-  
-  
-  
-  
-  
-  return 0;
-}
-/*string HexIn(){//Main input function that asks and recieves the hexadecimal the user wants to analyze
+string hexadecimal::HexIn(){//Main input function that asks and recieves the hexadecimal the user wants to analyze
   string Hex6;
   cout<< "What hexadecimal would you like to anaylze, or enter Q to quit.\n";
   cin >> Hex6;
+  hexlist.push_back(Hex6);
   return Hex6;
 }
-void HexToFile (string hex){//using fstream writer to write the input hexadeimcal onto hexadecimal.txt and separate them by color.
+void hexadecimal::HexToFile (string hex){//using fstream writer to write the input hexadeimcal onto hexadecimal.txt and separate them by color.
   std::ofstream out("hexadecimal.txt");
   out << hex[0] << hex[1] << endl;
   out << hex[2] << hex[3] << endl;
   out << hex[4] << hex[5] << endl;
 }
 
-long int ColorAnalysis(){
+long int hexadecimal::ColorAnalysis(){
   //fstream file reading and display of hexadecimal color values
   fstream fileR;
   string red,green,blue;
@@ -84,4 +59,8 @@ long int ColorAnalysis(){
   }
 
   return 0;
-}*/
+}
+
+void hexquit(&string quit,&string hexa){
+
+}
