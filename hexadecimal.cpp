@@ -9,11 +9,11 @@ using std::vector;
 using namespace std;
 
 string hexadecimal::HexIn(){//Main input function that asks and recieves the hexadecimal the user wants to analyze
-  string Hex6;
+  
   cout<< "What hexadecimal would you like to anaylze, or enter Q to quit.\n";
-  cin >> Hex6;
-  hexlist.push_back(Hex6);
-  return Hex6;
+  cin >> hex;
+  hexlist.push_back(hex);
+  return hex;
 }
 void hexadecimal::HexToFile (string hex){//using fstream writer to write the input hexadeimcal onto hexadecimal.txt and separate them by color.
   std::ofstream out("hexadecimal.txt");
@@ -61,10 +61,11 @@ long int hexadecimal::ColorAnalysis(){
   return 0;
 }
 
-void hexadecimal::hexquitdisplay(std::string& quit){
-  if(hexlist.size() <= 0){
+void hexadecimal::hexquitdisplay(){
+  if(hexlist.size() != 0){
     cout<<"Analyzed Hexadecimals\n";
     for(int c = 0;c < hexlist.size();c++){
+      hexlist.pop_back();
     cout<<hexlist[c]<<endl;
   }
  }

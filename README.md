@@ -66,3 +66,5 @@ I used a string array called hex to intake the characters that was input for the
 ### Functions
 
 In this program I used 3 functions in total called "void HexToFile (string)" , "long int ColorAnalysis()" , and "string HexIn();". I used 3 different return types, a void to write a sring to a .txt file, so that I could convert the strings in the .txt file to integers, and a string return so that I could an input hexadecimal to use in other functions. I used two functions that were lacking parameters because their main purpose was tow either cin a hexadecimal or cout the anaylzed color values. For my second parameter type I used a string to take whatever was written in HexIn() and write it to the .txt file. I passed the string in HexToFile by value so that the value of the string hexadecimal would change everytime a new value for HexIn() was called.
+
+### Classes
