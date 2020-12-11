@@ -16,7 +16,7 @@ class hexadecimal
     string HexIn();
     void HexToFile (string);
     long int ColorAnalysis();
-    void hexquit(&string quit);
+    void hexquitdisplay(std::string&);
 };
 
 #endif

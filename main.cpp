@@ -20,13 +20,14 @@ int main()
       hex.HexToFile(hexa); //call to input hexadecimal input into hexadecimal.txt
       hex.ColorAnalysis();//reads hexadecimal values from .txt file and changes to integer
     }
-    if(hexa.size() == 1){
-      hex.hexquit(hexa);
+    if(hexa == "Q" || hexa == "q"){
+      hex.hexquitdisplay(hexa);
+      exit(0);
     }
     if(hexa.size() < 6){
       cout<<"That was an invalid hexadecimal please try again.\n";
     }
-  }while(hex.HexIn() == hex.HexIn());
+  }while(hexa != "Q" || hexa != "q");
   
   
   
