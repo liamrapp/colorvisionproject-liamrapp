@@ -8,6 +8,9 @@ In this porgram I decided that I wanted to create a program that takes in a cert
 
 My major flaw was that my original program could not take in the letter portions of hexadecimals, I am certain I know how to do this now with using std:;strtol to assign new integer values to strings. I also streamlined all of my file reading to a function caled "HexToFile" because in my original project I read it line by line in int main. Most of the changes for this deliverable are in the function ColorAnalysis. On this deliverable I was able to read the hexadecimal values from the .txt file much more professionally as I did not assign a value to everysingle number and instead separated them by color on each line. I then used those variables in the same function to switch them to RGB values and decifer whether those RGB shades were suitable to be seen by people with colorblindness. I also specified what colors and levels are able to be seen and by people of each type of colorblindness.
 
+# v1.0 Updates
+In this update I implemented a class to hold all of my functions and couple private member variables to store and handle all the data related to analyzed hexadecimals. I also fixed the bug of a throw error when quiting and the display of q after every time the program was quit. I also implemeted a new function call void HexQuitDisplay() that displays all hexadecimals that were anaylzed before quitting. 
+
 ## Developer
 
 Liam Rapp
