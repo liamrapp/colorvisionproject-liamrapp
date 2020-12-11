@@ -21,7 +21,7 @@ int main()
       hex.ColorAnalysis();//reads hexadecimal values from .txt file and changes to integer
     }
     if(hexa == "Q" || hexa == "q"){
-      hex.hexquitdisplay();
+      hex.HexQuitDisplay();
       exit(0);
     }
     if(hexa.size() < 6){

@@ -16,7 +16,7 @@ class hexadecimal
     string HexIn();
     void HexToFile (string);
     long int ColorAnalysis();
-    void hexquitdisplay();
+    void HexQuitDisplay();
 };
 
 #endif

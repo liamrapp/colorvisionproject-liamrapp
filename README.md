@@ -61,10 +61,12 @@ I used the std::string out function to write my hexadecimal string to a text fil
 
 ### Arrays/Vectors
 
-I used a string array called hex to intake the characters that was input for the hexadecimal. I think used the array to specify what letters should be printed on every line to separate them by colors. 
+ I have a vector to contain a list of all the hexadecimals that displays when the program has quit to remind the person which hexadecimals were analyzed within that run period.  
 
 ### Functions
 
 In this program I used 3 functions in total called "void HexToFile (string)" , "long int ColorAnalysis()" , and "string HexIn();". I used 3 different return types, a void to write a sring to a .txt file, so that I could convert the strings in the .txt file to integers, and a string return so that I could an input hexadecimal to use in other functions. I used two functions that were lacking parameters because their main purpose was tow either cin a hexadecimal or cout the anaylzed color values. For my second parameter type I used a string to take whatever was written in HexIn() and write it to the .txt file. I passed the string in HexToFile by value so that the value of the string hexadecimal would change everytime a new value for HexIn() was called.
 
 ### Classes
+
+In my class I used two private variables; string hex and a vector of strings called hexlist. I used these so that the values for which hexadecimals you input and have analyzed cannot be modified or used at all in the main function. I did this to have some control over which variables could be modified where. In my class I have four functions; string HexIn() void HexToFile (string) long int ColorAnalysis() and void HexQuitDisplay(). The HexIn() function and HexQuitDisplay() are the only two that handle private class member variables. 

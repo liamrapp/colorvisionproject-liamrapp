@@ -61,7 +61,7 @@ long int hexadecimal::ColorAnalysis(){
   return 0;
 }
 
-void hexadecimal::hexquitdisplay(){
+void hexadecimal::HexQuitDisplay(){
   if(hexlist.size() != 0){
     cout<<"Analyzed Hexadecimals\n";
     for(int c = 0;c < hexlist.size();c++){
